@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_size.c                                      :+:      :+:    :+:   */
+/*   ft_ver_info.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 13:26:00 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/10 14:57:41 by nsilva-n         ###   ########.fr       */
+/*   Created: 2025/06/20 13:30:26 by nsilva-n          #+#    #+#             */
+/*   Updated: 2025/06/20 15:25:30 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-bool	ft_get_size(void)
+bool	ft_ver_info(void)
 {
-	char	*line;
+	int	i;
 
-	line = ft_get_next_line(glob()->fd);
-	if (!line)
-		return (false);
-	while (line)
-	{
-		glob()->rows++;
-		if (!ft_ver_line(line))
-			return (close(glob()->fd), free(line), false);
-		if (ft_strlen(line) > glob()->max_cols)
-			glob()->max_cols = ft_strlen(line);
-		free(line);
-		line = ft_get_next_line(glob()->fd);
-	}
-	return (close(glob()->fd), glob()->nsew_count == 1);
+	i = -1;
+	while (++i < 3)
+		if (glob()->floor_color[i] > 255 || glob()->floor_color[i] < 0
+			|| glob()->ceil_color[i] > 255 || glob()->ceil_color[i] < 0)
+			return (false);
+	return (true);
 }

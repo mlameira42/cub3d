@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_global.c                                   :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 12:45:58 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 15:40:00 by nsilva-n         ###   ########.fr       */
+/*   Created: 2025/06/20 15:36:14 by nsilva-n          #+#    #+#             */
+/*   Updated: 2025/06/20 15:37:17 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	ft_init_global(char *str)
+void	ft_close(void)
 {
-	t_global	*global;
+	int	i;
 
-	global = glob();
-	global->doc = ft_strdup(str);
-	if (!global->doc)
-		ft_exit(1);
-	global->map = NULL;
-	global->doc_len = ft_strlen(str);
-	global->fd = 0;
-	global->rows = 0;
-	global->max_cols = 0;
-	global->nsew_count = 0;
-	global->n_wall_tex = NULL;
-	global->s_wall_tex = NULL;
-	global->e_wall_tex = NULL;
-	global->w_wall_tex = NULL;
-	global->empty_lines = 0;
+	i = 2;
+	while (++i < FOPEN_MAX)
+		close(i);
 }

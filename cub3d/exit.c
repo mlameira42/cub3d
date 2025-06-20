@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:56:16 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/10 14:42:08 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:17:23 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ void	ft_exit(int status)
 		free(glob()->doc);
 	if (glob()->map)
 		ft_free_strs(glob()->map);
+	if (glob()->ceil_color)
+		free(glob()->ceil_color);
+	if (glob()->floor_color)
+		free(glob()->floor_color);
+	if (glob()->n_wall_tex)
+		free(glob()->n_wall_tex);
+	if (glob()->s_wall_tex)
+		free(glob()->s_wall_tex);
+	if (glob()->e_wall_tex)
+		free(glob()->e_wall_tex);
+	if (glob()->w_wall_tex)
+		free(glob()->w_wall_tex);
+	ft_close();
 	if (status)
 		ft_fprintf(2, "Error\n");
 	exit(status);

@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:23:34 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/10 15:29:35 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:05:13 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,28 @@ typedef struct s_global
 	size_t		max_cols;
 	int			nsew_count;
 	int			ver_wall[2];
-}			t_global;
+	char		*n_wall_tex;
+	char		*s_wall_tex;
+	char		*e_wall_tex;
+	char		*w_wall_tex;
+	int			*floor_color;
+	int			*ceil_color;
+	int			empty_lines;
+}				t_global;
 
 t_global	*glob(void);
 void		ft_init_global(char *str);
 void		ft_exit(int status);
 bool		ft_main_ver(void);
-bool		ft_get_size(void);
+bool		ft_get_info(void);
 bool		ft_ver_line(char *line);
 bool		ft_copy_map(void);
 void		ft_free_strs(char **strs);
-// bool		ft_ver_walls(void);
+int			*ft_copy_ints(char *str, char c);
+void		ft_copy_info(char *str, char c);
+bool		ft_ver_info(void);
+void		ft_close(void);
+void		ft_get_map_size(void);
+void		ft_debugger(void);
 
 #endif

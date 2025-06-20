@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_copy_map.c                                      :+:      :+:    :+:   */
+/*   ft_get_map_size.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 14:29:31 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 16:02:24 by nsilva-n         ###   ########.fr       */
+/*   Created: 2025/06/20 15:49:26 by nsilva-n          #+#    #+#             */
+/*   Updated: 2025/06/20 15:53:35 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-bool	ft_copy_map(void)
+void	ft_get_map_size(void)
 {
-	char	*line;
 	int		i;
+	char	*line;
 
-	glob()->map = malloc(sizeof(char *) * (glob()->rows + 1));
-	if (!glob()->map)
-		return (false);
+	i = 0;
 	line = ft_get_next_line(glob()->fd);
-	i = -1;
-	while (line)
+	while (line && i != glob()->empty_lines)
 	{
-		if (!glob()->empty_lines)
-		{
-			line[ft_strlen(line) - 1] = 0;
-			glob()->map[++i] = ft_strdup(line);
-			if (!glob()->map[i])
-				return (free(line), false);
-		}
 		if (!ft_linelen(line))
-			glob()->empty_lines--;
+			i++;
 		free(line);
 		line = ft_get_next_line(glob()->fd);
 	}
-	glob()->map[++i] = NULL;
-	return (true);
+	while (line)
+	{
+		glob()->rows++;
+		free(line);
+		line = ft_get_next_line(glob()->fd);
+	}
 }
