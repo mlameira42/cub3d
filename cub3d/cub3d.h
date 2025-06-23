@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:23:34 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 16:05:13 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:42:03 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ typedef struct s_global
 	int			*floor_color;
 	int			*ceil_color;
 	int			empty_lines;
+	bool		isfloorinfo;
+	bool		isceilinfo;
 }				t_global;
 
 t_global	*glob(void);
 void		ft_init_global(char *str);
 void		ft_exit(int status);
 bool		ft_main_ver(void);
-bool		ft_get_info(void);
+void		ft_get_info(void);
 bool		ft_ver_line(char *line);
 bool		ft_copy_map(void);
 void		ft_free_strs(char **strs);

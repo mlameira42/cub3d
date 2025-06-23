@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:45:58 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 15:40:00 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:35:28 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	ft_init_global(char *str)
 	global->e_wall_tex = NULL;
 	global->w_wall_tex = NULL;
 	global->empty_lines = 0;
+	global->isceilinfo = false;
+	global->isfloorinfo = false;
 }

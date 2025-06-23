@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:29:31 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 16:02:24 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:47:03 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ bool	ft_copy_map(void)
 	{
 		if (!glob()->empty_lines)
 		{
-			line[ft_strlen(line) - 1] = 0;
-			glob()->map[++i] = ft_strdup(line);
+			glob()->map[++i] = ft_strtrim(line, "\n");
 			if (!glob()->map[i])
 				return (free(line), false);
 		}

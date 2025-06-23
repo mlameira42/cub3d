@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 12:07:42 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 15:31:18 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:27:56 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,22 @@ int	*ft_copy_ints(char *str, char c)
 	int		i;
 	int		*res;
 
-	temp = ft_split(str + 1, ',');
+	temp = ft_split(str + 2, ',');
 	res = malloc(sizeof(int) * 3);
 	if (!temp || !res)
 	{
 		if (res)
-			return (free(res), NULL);
+			free(res);
 		if (temp)
-			return (ft_free_strs(temp), NULL);
+			ft_free_strs(temp);
+		return (NULL);
 	}
 	i = -1;
-	while (temp[++i])
-	{
-		if (i > 2 || !ft_strlen(temp[i]))
-			return (ft_free_strs(temp), free(res), NULL);
+	while (temp[++i] && i < 3)
 		res[i] = ft_atoi(temp[i]);
-	}
+	if (i != 3 || (!ft_strchr(temp[2], '0') && !res[2]) || temp[3])
+		return (ft_free_strs(temp), free(res), NULL);
 	if (c == 'C')
-		return (ft_free_strs(temp), res);
-	return (ft_free_strs(temp), res);
+		return (ft_free_strs(temp), glob()->isceilinfo = true, res);
+	return (ft_free_strs(temp), glob()->isfloorinfo = true, res);
 }

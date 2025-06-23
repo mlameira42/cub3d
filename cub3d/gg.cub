@@ -1,12 +1,15 @@
 
-
+F 123,23,214
 EA East
 
-C 5,44,255
-WE West
-NO North
-F 1,2,1
+C 2,3,16
+C 2,2,4
+
+NO ./file
+NO .GG
+SO yy
 SO South
+WE West
 
 111111
 111111
@@ -18,3 +21,4 @@ N
 			11
 			11111
 000000
+111111111

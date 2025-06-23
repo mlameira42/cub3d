@@ -6,7 +6,7 @@
 /*   By: nsilva-n <nsilva-n@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:36:14 by nsilva-n          #+#    #+#             */
-/*   Updated: 2025/06/20 15:37:17 by nsilva-n         ###   ########.fr       */
+/*   Updated: 2025/06/23 13:18:15 by nsilva-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_close(void)
 	int	i;
 
 	i = 2;
-	while (++i < FOPEN_MAX)
+	while (++i <= FOPEN_MAX)
 		close(i);
 }
